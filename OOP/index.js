@@ -1,14 +1,17 @@
 function Circle(radious) {
-  this.radious = radious;
+  this.radius = radious;
   this.draw = function() {
     console.log('drow');
   };
 }
-const circle = new Circle(1);
-circle.location = { x: 1, y: 2 };
-const propertryName = 'location';
-circle[propertryName] = { x: 1, y: 2 };
-delete circle['location'];
+const circle = new Circle(10);
+
+for (let key in circle) {
+  if (typeof circle[key] !== 'function') console.log(key, circle[key]);
+}
+const keys = Object.keys(circle);
+console.log(keys);
+if ('radius' in circle) console.log('Circle has a radius');
 
 // let obj = { value: 10 };
 // function increaseObj(obj) {
