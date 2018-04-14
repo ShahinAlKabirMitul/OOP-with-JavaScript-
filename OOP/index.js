@@ -1,26 +1,37 @@
-function Circle(radious) {
-  this.radius = radious;
+let person = { name: 'Mitul' };
+Object.defineProperty(person, 'name', {
+  writable: false,
+  enumerable: true,
+  configurable: false,
+});
+person.name = 'asha';
+delete person.name;
+console.log(person);
+console.log(Object.keys(person));
 
-  let defaultLocation = { x: 0, y: 0 };
+// function Circle(radious) {
+//   this.radius = radious;
 
-  this.draw = function() {
-    console.log('drow');
-  };
-  Object.defineProperty(this, 'defaultLocation', {
-    get: function() {
-      return defaultLocation;
-    },
-    set: function(value) {
-      if (!value.x || !value.y) {
-        throw new Error('Invalid location');
-      }
-      defaultLocation = value;
-    },
-  });
-}
-const circle = new Circle(10);
-circle.draw();
-circle.defaultLocation = 1;
+//   let defaultLocation = { x: 0, y: 0 };
+
+//   this.draw = function() {
+//     console.log('drow');
+//   };
+//   Object.defineProperty(this, 'defaultLocation', {
+//     get: function() {
+//       return defaultLocation;
+//     },
+//     set: function(value) {
+//       if (!value.x || !value.y) {
+//         throw new Error('Invalid location');
+//       }
+//       defaultLocation = value;
+//     },
+//   });
+// }
+// const circle = new Circle(10);
+// circle.draw();
+// circle.defaultLocation = 1;
 
 // function Circle(radious) {
 //   this.radius = radious;
