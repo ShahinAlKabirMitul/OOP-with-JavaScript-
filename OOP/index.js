@@ -1,13 +1,26 @@
-let person = { name: 'Mitul' };
-Object.defineProperty(person, 'name', {
-  writable: false,
-  enumerable: true,
-  configurable: false,
-});
-person.name = 'asha';
-delete person.name;
-console.log(person);
-console.log(Object.keys(person));
+function Circle(radius) {
+  this.radius = radius;
+}
+Circle.prototype.draw = function() {
+  console.log('Draw');
+};
+const c1 = new Circle(5);
+const c2 = new Circle(6);
+
+Circle.prototype.toString = function() {
+  return 'Circle with radius' + this.radius;
+};
+
+// let person = { name: 'Mitul' };
+// Object.defineProperty(person, 'name', {
+//   writable: false,
+//   enumerable: true,
+//   configurable: false,
+// });
+// person.name = 'asha';
+// delete person.name;
+// console.log(person);
+// console.log(Object.keys(person));
 
 // function Circle(radious) {
 //   this.radius = radious;
