@@ -7,6 +7,7 @@ function Circle(radius) {
   this.radius = radius;
 }
 Circle.prototype = Object.create(Shape.prototype);
+Circle.prototype.constractor = Circle;
 Circle.prototype.draw = function() {
   console.log('Draw');
 };
