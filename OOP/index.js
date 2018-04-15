@@ -1,9 +1,12 @@
-function Shape() {}
+function Shape(color) {
+  this.color = color;
+}
 Shape.prototype.dublicate = function() {
   console.log('Dublicate');
 };
 
-function Circle(radius) {
+function Circle(radius, color) {
+  Shape.call(this, color);
   this.radius = radius;
 }
 Circle.prototype = Object.create(Shape.prototype);
@@ -12,7 +15,7 @@ Circle.prototype.draw = function() {
   console.log('Draw');
 };
 const s = new Shape();
-const c = new Circle();
+const c = new Circle(1, 'color');
 
 // function Circle(radius) {
 //   this.radius = radius;
