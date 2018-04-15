@@ -1,31 +1,64 @@
-function extend(Child, Parent) {
-  Child.prototype = Object.create(Parent.prototype);
-  Child.prototype.constractor = Child;
+function mixin(target, ...sources) {
+  Object.assign(target, ...sources);
 }
-
-function Shape() {}
-Shape.prototype.dublicate = function() {
-  console.log('Dublicate');
+const canEat = {
+  eat: function() {
+    this.hunger--;
+    console.log('eating');
+  },
 };
 
-function Circle() {}
-
-extend(Circle, Shape);
-
-Circle.prototype.dublicate = function() {
-  console.log('Dublicate Circle');
+const canWalk = {
+  walk: function() {
+    console.log('Walking');
+  },
 };
 
-function Square() {}
-extend(Square, Shape);
-Square.prototype.dublicate = function() {
-  console.log('Dublicate Square');
+const canSwim = {
+  swim: function() {
+    console.log('Swim');
+  },
 };
 
-const shapes = [new Circle(), new Square()];
-for (let s of shapes) s.dublicate();
+function Person() {}
+function GoldFish() {}
 
-const c = new Circle();
+mixin(Person.prototype, canEat, canWalk);
+person = new Person();
+console.log(person);
+
+mixin(GoldFish.prototype, canEat, canSwim);
+const gf = new GoldFish();
+console.log(gf);
+
+// function extend(Child, Parent) {
+//   Child.prototype = Object.create(Parent.prototype);
+//   Child.prototype.constractor = Child;
+// }
+
+// function Shape() {}
+// Shape.prototype.dublicate = function() {
+//   console.log('Dublicate');
+// };
+
+// function Circle() {}
+
+// extend(Circle, Shape);
+
+// Circle.prototype.dublicate = function() {
+//   console.log('Dublicate Circle');
+// };
+
+// function Square() {}
+// extend(Square, Shape);
+// Square.prototype.dublicate = function() {
+//   console.log('Dublicate Square');
+// };
+
+// const shapes = [new Circle(), new Square()];
+// for (let s of shapes) s.dublicate();
+
+// const c = new Circle();
 
 // function Circle(radius) {
 //   this.radius = radius;
