@@ -1,25 +1,40 @@
+function Shape() {}
+Shape.prototype.dublicate = function() {
+  console.log('Dublicate');
+};
+
 function Circle(radius) {
   this.radius = radius;
-  this.move = function() {
-    console.log('Move');
-  };
 }
-
-const c1 = new Circle(5);
-const c2 = new Circle(6);
+Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.draw = function() {
   console.log('Draw');
 };
-c1.draw();
+const s = new Shape();
+const c = new Circle();
+
+// function Circle(radius) {
+//   this.radius = radius;
+//   this.move = function() {
+//     console.log('Move');
+//   };
+// }
+
+// const c1 = new Circle(5);
+// const c2 = new Circle(6);
+// Circle.prototype.draw = function() {
+//   console.log('Draw');
+// };
+// c1.draw();
 // return instance member
-console.log(Object.keys(c1));
+//console.log(Object.keys(c1));
 
 // return all members (instance + prototype)
-for (let key in c1) console.log(key);
+//for (let key in c1) console.log(key);
 
-Circle.prototype.toString = function() {
-  return 'Circle with radius' + this.radius;
-};
+// Circle.prototype.toString = function() {
+//   return 'Circle with radius' + this.radius;
+// };
 
 // let person = { name: 'Mitul' };
 // Object.defineProperty(person, 'name', {
