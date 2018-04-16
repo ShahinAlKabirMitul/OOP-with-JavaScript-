@@ -1,35 +1,50 @@
-function mixin(target, ...sources) {
-  Object.assign(target, ...sources);
+class Circle {
+  constructor(radius) {
+    this.radius = radius;
+    this.move = function() {};
+  }
+  draw() {
+    console.log('Circle');
+  }
 }
-const canEat = {
-  eat: function() {
-    this.hunger--;
-    console.log('eating');
-  },
-};
+const c = new Circle(1);
 
-const canWalk = {
-  walk: function() {
-    console.log('Walking');
-  },
-};
+//
 
-const canSwim = {
-  swim: function() {
-    console.log('Swim');
-  },
-};
+//
 
-function Person() {}
-function GoldFish() {}
+// function mixin(target, ...sources) {
+//   Object.assign(target, ...sources);
+// }
+// const canEat = {
+//   eat: function() {
+//     this.hunger--;
+//     console.log('eating');
+//   },
+// };
 
-mixin(Person.prototype, canEat, canWalk);
-person = new Person();
-console.log(person);
+// const canWalk = {
+//   walk: function() {
+//     console.log('Walking');
+//   },
+// };
 
-mixin(GoldFish.prototype, canEat, canSwim);
-const gf = new GoldFish();
-console.log(gf);
+// const canSwim = {
+//   swim: function() {
+//     console.log('Swim');
+//   },
+// };
+
+// function Person() {}
+// function GoldFish() {}
+
+// mixin(Person.prototype, canEat, canWalk);
+// person = new Person();
+// console.log(person);
+
+// mixin(GoldFish.prototype, canEat, canSwim);
+// const gf = new GoldFish();
+// console.log(gf);
 
 // function extend(Child, Parent) {
 //   Child.prototype = Object.create(Parent.prototype);
