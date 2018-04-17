@@ -1,11 +1,15 @@
 // Class Decrarationa
 class Circle {
-  //...
+  constructor(radius) {
+    this.radius = radius;
+  }
+  draw() {}
+  static parse(str) {}
 }
-// Class Expression
-const Square = class {
-  //....
-};
+
+const circle = new Circle(1);
+console.log(circle);
+
 // class Circle {
 //   constructor(radius) {
 //     this.radius = radius;
