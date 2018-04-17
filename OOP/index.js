@@ -1,13 +1,21 @@
+// Class Decrarationa
 class Circle {
-  constructor(radius) {
-    this.radius = radius;
-    this.move = function() {};
-  }
-  draw() {
-    console.log('Circle');
-  }
+  //...
 }
-const c = new Circle(1);
+// Class Expression
+const Square = class {
+  //....
+};
+// class Circle {
+//   constructor(radius) {
+//     this.radius = radius;
+//     this.move = function() {};
+//   }
+//   draw() {
+//     console.log('Circle');
+//   }
+// }
+// const c = new Circle(1);
 
 //
 
