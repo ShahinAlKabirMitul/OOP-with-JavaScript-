@@ -1,22 +1,50 @@
-class Shape {
-  constructor(color) {
-    this.color = color;
+const _items = new WeakMap();
+class Stack {
+  constructor() {
+    _items.set(this, []);
   }
-  move() {
-    console.log('move');
+  push(obj) {
+    _items.get(this).push(obj);
+  }
+  pop() {
+    const items = _items.get(this);
+    if (items.length === 0) {
+      throw new Error('Stack is Emty');
+    }
+    return items.pop();
+  }
+
+  peek() {
+    const items = _items.get(this);
+    if (items.length === 0) {
+      throw new Error('Stack is Emty');
+    }
+    return items[items.length - 1];
+  }
+  get count() {
+    return _items.get(this).length;
   }
 }
-class Circle extends Shape {
-  constructor(color, radius) {
-    super(color);
-    this.radius = radius;
-  }
-  move() {
-    super.move();
-    console.log('Circle Move');
-  }
-}
-const c = new Circle('red', 1);
+
+// class Shape {
+//   constructor(color) {
+//     this.color = color;
+//   }
+//   move() {
+//     console.log('move');
+//   }
+// }
+// class Circle extends Shape {
+//   constructor(color, radius) {
+//     super(color);
+//     this.radius = radius;
+//   }
+//   move() {
+//     super.move();
+//     console.log('Circle Move');
+//   }
+// }
+// const c = new Circle('red', 1);
 
 // Class Decrarationa
 // const _radius = new WeakMap();
