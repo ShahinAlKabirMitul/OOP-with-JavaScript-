@@ -11,8 +11,9 @@ class Circle extends Shape {
     super(color);
     this.radius = radius;
   }
-  draw() {
-    console.log('draw');
+  move() {
+    super.move();
+    console.log('Circle Move');
   }
 }
 const c = new Circle('red', 1);
