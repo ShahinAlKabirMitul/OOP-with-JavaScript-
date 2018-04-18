@@ -1,13 +1,21 @@
 // Class Decrarationa
+const _radius = new WeakMap();
+const _move = new WeakMap();
 class Circle {
   constructor(radius) {
-    this.radius = radius;
+    _radius.set(this, radius);
+    _move.set(this, () => {
+      console.log('move');
+    });
   }
-  draw() {}
-  static parse(str) {}
+  draw() {
+    _move.get(this);
+    console.log('draw');
+  }
 }
 
 const circle = new Circle(1);
+circle.radius;
 console.log(circle);
 
 // class Circle {
