@@ -1,21 +1,40 @@
-// Class Decrarationa
-const _radius = new WeakMap();
-class Circle {
-  constructor(radius) {
-    _radius.set(this, radius);
+class Shape {
+  constructor(color) {
+    this.color = color;
   }
-  get radius() {
-    return _radius.get(this);
-  }
-  set radius(value) {
-    if (value <= 0) throw new Error('Invalid radious');
-    _radius.set(this, value);
+  move() {
+    console.log('move');
   }
 }
+class Circle extends Shape {
+  constructor(color, radius) {
+    super(color);
+    this.radius = radius;
+  }
+  draw() {
+    console.log('draw');
+  }
+}
+const c = new Circle('red', 1);
 
-const circle = new Circle(1);
-circle.radius;
-console.log(circle);
+// Class Decrarationa
+// const _radius = new WeakMap();
+// class Circle {
+//   constructor(radius) {
+//     _radius.set(this, radius);
+//   }
+//   get radius() {
+//     return _radius.get(this);
+//   }
+//   set radius(value) {
+//     if (value <= 0) throw new Error('Invalid radious');
+//     _radius.set(this, value);
+//   }
+// }
+
+// const circle = new Circle(1);
+// circle.radius;
+// console.log(circle);
 
 // class Circle {
 //   constructor(radius) {
